@@ -25,6 +25,12 @@ namespace ActivityManagement.Models
         {
         }
 
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<UserInfo> UsersInfos { get; set; }
+        public DbSet<CourseUser> CoursesUsers { get; set; }
+
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
