@@ -19,5 +19,6 @@ namespace ActivityManagement.Models
 		[ForeignKey("User")]
 		public string UserId { get; set; }
 		public ApplicationUser User { get; set; }
-	}
+        public int? TeamId { get; internal set; }
+    }
 }
