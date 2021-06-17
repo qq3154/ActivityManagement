@@ -18,6 +18,12 @@ namespace ActivityManagement
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                    name: "RemoveMember",
+                    url: "{controller}/{action}/{id}/{userId}",
+                    new { controller = "Courses", action = "RemoveMember", id = "", userId = "" }
+            );
         }
     }
 }

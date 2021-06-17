@@ -3,13 +3,13 @@
     ViewBag.Title = "Members";
 }
 
-<h2>Members in Team</h2>
+<h2>Members in Course</h2>
 
 <div class="row">
     <div class="col-md-4">
         <ul class="list-group">
             <li class="list-group-item active">
-                Members in Team
+                Members in Course
                 <span class="badge">@Model.Count()</span>
             </li>
             @foreach (var user in Model)
@@ -17,12 +17,12 @@
                 <li class="list-group-item">
                     @user.Email
                     <div>
-                        <span class="text-right">
+                        <span>
                             @Html.ActionLink(
                                                  "Remove",
                                                  "RemoveMember",
-                                                 "Teams",
-                                                 new { id = ViewBag.TeamId, userId = user.Id },
+                                                 "Courses",
+                                                 new { id = ViewBag.CourseId, userId = user.Id },
                                                  new { @class = "text-danger text-right" }
                             )
 
