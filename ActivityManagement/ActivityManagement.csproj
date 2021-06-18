@@ -184,10 +184,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\UserInfosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +212,10 @@
     <Compile Include="Migrations\202106171618348_fixCourseUserTable.cs" />
     <Compile Include="Migrations\202106171618348_fixCourseUserTable.Designer.cs">
       <DependentUpon>202106171618348_fixCourseUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181453551_AddDecriptionForcategory.cs" />
+    <Compile Include="Migrations\202106181453551_AddDecriptionForcategory.Designer.cs">
+      <DependentUpon>202106181453551_AddDecriptionForcategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,6 +293,10 @@
     <Content Include="Views\Courses\Members.cshtml" />
     <Content Include="Views\Courses\AddMembers.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\UserInfos\Index.cshtml" />
+    <Content Include="Views\UserInfos\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106171618348_fixCourseUserTable.resx">
       <DependentUpon>202106171618348_fixCourseUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181453551_AddDecriptionForcategory.resx">
+      <DependentUpon>202106181453551_AddDecriptionForcategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

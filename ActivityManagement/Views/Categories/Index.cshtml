@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ActivityManagement.Models.Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Category List</h2>
+@if (User.IsInRole("staff"))
+{
+    <div class="form-group">
+        @Html.ActionLink(
+                 "Create a new Category",
+                 "Create",
+                 "Categories",
+                 null,
+                 new { @class = "btn btn-primary" }
+                 )
+    </div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category Name</th>
+            @if (User.IsInRole("staff"))
+            {
+                <th scope="col">Action</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                @if (User.IsInRole("staff"))
+                {
+                    <td>
+                        @Html.ActionLink(
+                                     "Details",
+                                     "Details",
+                                     "Categories",
+                                     new { id = category.Id },
+                                     new { @class = "btn btn-primary" }
+                                     )
+                        @Html.ActionLink(
+                                     "Delete",
+                                     "Delete",
+                                     "Categories",
+                                     new { id = category.Id },
+                                     new { @class = "btn btn-danger" }
+                                     )
+                        @Html.ActionLink(
+                                     "Edit",
+                                     "Edit",
+                                     "Todoes",
+                                     new { id = category.Id },
+                                     new { @class = "btn btn-default" }
+                                     )
+                    </td>
+                }
+            </tr>
+        }
+
+    </tbody>
+</table>

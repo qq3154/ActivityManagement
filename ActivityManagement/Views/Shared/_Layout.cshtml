@@ -30,11 +30,15 @@
                     {
                         <li>@Html.ActionLink("Course", "Index", "Courses")</li>
                     }
-                    @if (User.IsInRole("trainee") || User.IsInRole("trainer") )
+                    @if (User.IsInRole("staff"))
                     {
-                    <li>@Html.ActionLink("My Courses", "Mine", "Courses")</li>
+                        <li>@Html.ActionLink("Category", "Index", "Categories")</li>
                     }
-
+                    @if (User.IsInRole("trainee") || User.IsInRole("trainer"))
+                    {
+                        <li>@Html.ActionLink("My Courses", "Mine", "Courses")</li>
+                    }
+                    <li>@Html.ActionLink("My Info", "Index", "UserInfos")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -17,9 +17,10 @@ namespace ActivityManagement.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext _context;
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -157,6 +158,14 @@ namespace ActivityManagement.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var userInfo = new UserInfo
+                    {
+                        FullName = model.FullName,
+                        Age = model.Age,
+                        UserId = user.Id
+                    };
+                    _context.UsersInfos.Add(userInfo);
+                    _context.SaveChanges();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

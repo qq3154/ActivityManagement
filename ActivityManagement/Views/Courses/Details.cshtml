@@ -1,7 +1,24 @@
-﻿
+﻿@model ActivityManagement.Models.Course
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Details of TodoesController</h2>
 
+<div class="form-group">
+    @Html.ActionLink(
+        "Back to Index page",
+        "Index",
+        "Courses",
+        null,
+        new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Description: @Model.Description </div>
+    <div class="panel-body">
+        <p>Category: @Model.Category.Name</p>
+        <p>Due Date: @Model.DueDate.ToString("dd/MMM/yyyy")</p>
+    </div>
+</div>

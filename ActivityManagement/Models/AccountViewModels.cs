@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActivityManagement.Models
@@ -79,13 +80,16 @@ namespace ActivityManagement.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-       /* [Required]
-        [Display(Name = "Full Name")]
+        [DisplayName("Full Name")]
         public string FullName { get; set; }
+        public int Age { get; set; }
 
-        [Required]
-        public int Age { get; set; }*/
+        /* [Required]
+         [Display(Name = "Full Name")]
+         public string FullName { get; set; }
+
+         [Required]
+         public int Age { get; set; }*/
     }
 
     public class ResetPasswordViewModel

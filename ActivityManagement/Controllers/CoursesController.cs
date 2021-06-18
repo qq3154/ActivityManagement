@@ -167,5 +167,16 @@ namespace ActivityManagement.Controllers
 			return View(courses);
 		}
 
+		public ActionResult Details(int? id)
+		{
+			if (id == null) return HttpNotFound();
+
+			var course = _context.Courses.SingleOrDefault(t => t.Id == id);
+
+			if (course == null) return HttpNotFound();
+
+			return View(course);
+		}
+
 	}
 }
