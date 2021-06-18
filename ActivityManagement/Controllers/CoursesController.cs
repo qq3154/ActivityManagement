@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using ActivityManagement.ViewModels;
 using System.Diagnostics;
+using System.Net;
 
 namespace ActivityManagement.Controllers
 {
@@ -179,16 +180,89 @@ namespace ActivityManagement.Controllers
 			return View(courses);
 		}
 
+		[HttpGet]
 		public ActionResult Details(int? id)
 		{
 			if (id == null) return HttpNotFound();
 
-			var course = _context.Courses.SingleOrDefault(t => t.Id == id);
+			var course = _context.Courses		
+				.Include(t => t.Category)
+				.SingleOrDefault(t => t.Id == id);
 
 			if (course == null) return HttpNotFound();
 
 			return View(course);
 		}
 
+		
+		public ActionResult Delete(int? id)
+		{
+			if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+			//var userId = User.Identity.GetUserId();
+
+			var course = _context.Courses
+				//.Where(t => t.UserId.Equals(userId))
+				.SingleOrDefault(t => t.Id == id);
+
+			if (course == null) return HttpNotFound();
+
+			_context.Courses.Remove(course);
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
+		}
+
+		[HttpGet]
+		public ActionResult Edit(int? id)
+		{
+			if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+			//var userId = User.Identity.GetUserId();
+
+			var course = _context.Courses
+				//.Where(t => t.UserId.Equals(userId))
+				.SingleOrDefault(t => t.Id == id);
+
+			if (course == null) return HttpNotFound();
+
+			var viewModel = new CourseCategoriesViewModel()
+			{
+				Course = course,
+				Categories = _context.Categories.ToList()
+			};
+
+			return View(viewModel);
+		}
+
+		[HttpPost]
+		public ActionResult Edit(Course course)
+		{
+			if (!ModelState.IsValid)
+			{
+				var viewModel = new CourseCategoriesViewModel()
+				{
+					Course = course,
+					Categories = _context.Categories.ToList()
+				};
+				return View(viewModel);
+			}
+
+			//var userId = User.Identity.GetUserId();
+
+			var courseInDb = _context.Courses
+				//.Where(t => t.UserId.Equals(userId))
+				.SingleOrDefault(t => t.Id == course.Id);
+
+			if (courseInDb == null) return HttpNotFound();
+			courseInDb.Name = courseInDb.Name;
+			courseInDb.Description = courseInDb.Description;
+			courseInDb.StartDate = courseInDb.StartDate;
+			courseInDb.CategoryId = courseInDb.CategoryId;
+
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
+		}
 	}
 }

@@ -27,24 +27,24 @@
                     @Html.ActionLink(
                         "Details",
                         "Details",
-                        "Categories",
+                        "Courses",
                         new { id = course.Id },
                         new { @class = "btn btn-primary" }
                         )
                     @Html.ActionLink(
-                        "Delete",
-                        "Delete",
-                        "Categories",
-                        new { id = course.Id },
-                        new { @class = "btn btn-danger" }
-                        )
-                    @Html.ActionLink(
                         "Edit",
                         "Edit",
-                        "Todoes",
+                        "Courses",
                         new { id = course.Id },
                         new { @class = "btn btn-default" }
                         )
+                    @Html.ActionLink(
+                       "Delete",
+                       "Delete",
+                       "Courses",
+                       new { id = course.Id },
+                       new { @class = "btn btn-danger" }
+                       )
                 </li>
                 <li class="list-group-item">
                     @Html.ActionLink(
