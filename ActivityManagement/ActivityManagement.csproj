@@ -217,6 +217,34 @@
     <Compile Include="Migrations\202106181453551_AddDecriptionForcategory.Designer.cs">
       <DependentUpon>202106181453551_AddDecriptionForcategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106181457587_AddCourceTable.cs" />
+    <Compile Include="Migrations\202106181457587_AddCourceTable.Designer.cs">
+      <DependentUpon>202106181457587_AddCourceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181459167_AddCourceTable1.cs" />
+    <Compile Include="Migrations\202106181459167_AddCourceTable1.Designer.cs">
+      <DependentUpon>202106181459167_AddCourceTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181500212_test1.cs" />
+    <Compile Include="Migrations\202106181500212_test1.Designer.cs">
+      <DependentUpon>202106181500212_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181504596_ChangeUserInfoTable.cs" />
+    <Compile Include="Migrations\202106181504596_ChangeUserInfoTable.Designer.cs">
+      <DependentUpon>202106181504596_ChangeUserInfoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181506282_ChangeUserInfoTable2.cs" />
+    <Compile Include="Migrations\202106181506282_ChangeUserInfoTable2.Designer.cs">
+      <DependentUpon>202106181506282_ChangeUserInfoTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181515271_addStartdate.cs" />
+    <Compile Include="Migrations\202106181515271_addStartdate.Designer.cs">
+      <DependentUpon>202106181515271_addStartdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106181627473_add.cs" />
+    <Compile Include="Migrations\202106181627473_add.Designer.cs">
+      <DependentUpon>202106181627473_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -228,6 +256,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UniqueAttribute\Unique.cs" />
+    <Compile Include="ViewModels\CourseCategoriesViewModel.cs" />
     <Compile Include="ViewModels\CoursesUsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +361,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181453551_AddDecriptionForcategory.resx">
       <DependentUpon>202106181453551_AddDecriptionForcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181457587_AddCourceTable.resx">
+      <DependentUpon>202106181457587_AddCourceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181459167_AddCourceTable1.resx">
+      <DependentUpon>202106181459167_AddCourceTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181500212_test1.resx">
+      <DependentUpon>202106181500212_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181504596_ChangeUserInfoTable.resx">
+      <DependentUpon>202106181504596_ChangeUserInfoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181506282_ChangeUserInfoTable2.resx">
+      <DependentUpon>202106181506282_ChangeUserInfoTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181515271_addStartdate.resx">
+      <DependentUpon>202106181515271_addStartdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181627473_add.resx">
+      <DependentUpon>202106181627473_add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿@model ActivityManagement.Models.Course
+﻿@model ActivityManagement.ViewModels.CourseCategoriesViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -9,10 +9,28 @@
 {
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Enter Team Name" })
-        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        @Html.LabelFor(m => m.Course.Name)
+        @Html.TextBoxFor(m => m.Course.Name, new { @class = "form-control", @placeholder = "Enter Course Name" })
+        @Html.ValidationMessageFor(m => m.Course.Name, "", new { @class = "text-danger" })
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.Description)
+        @Html.TextBoxFor(m => m.Course.Description, new { @class = "form-control", @placeholder = "Enter Course Descriptiion" })
+        @Html.ValidationMessageFor(m => m.Course.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.StartDate)
+        @Html.TextBoxFor(m => m.Course.StartDate, new { @type = "date", @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.StartDate, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.Category.Name)
+        @Html.DropDownListFor(m => m.Course.CategoryId,
+            new SelectList(Model.Categories, "Id", "Name"),
+            new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.CategoryId, "", new { @class = "text-danger" })
+    </div>
+
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

@@ -39,7 +39,11 @@ namespace ActivityManagement.Controllers
 		[Authorize(Roles = "staff")]
 		public ActionResult Create()
 		{
-			return View();
+			var viewModel = new CourseCategoriesViewModel()
+			{
+				Categories = _context.Categories.ToList()
+			};
+			return View(viewModel);
 		}
 
 		[HttpPost]
@@ -48,12 +52,20 @@ namespace ActivityManagement.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				return View(course);
+				var viewModel = new CourseCategoriesViewModel()
+				{
+					Course = course,
+					Categories = _context.Categories.ToList()
+				};
+				return View(viewModel);
 			}
 
 			var newCourse = new Course
 			{
-				Name = course.Name
+				Name = course.Name,
+				CategoryId = course.CategoryId,
+				StartDate = course.StartDate,
+				Description = course.Description
 			};
 
 			_context.Courses.Add(newCourse);
