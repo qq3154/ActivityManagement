@@ -1,0 +1,23 @@
+﻿@model ActivityManagement.Models.Category
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="form-group">
+    @Html.ActionLink(
+        "Back to Index page",
+        "Index",
+        "Categories",
+        null,
+        new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Name: @Model.Name </div>
+    <div class="panel-body">
+        <p>Description: @Model.Description</p>
+
+    </div>
+</div>

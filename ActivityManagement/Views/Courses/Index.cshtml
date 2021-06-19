@@ -15,6 +15,31 @@
              )
 </div>
 
+@using (Html.BeginForm("Index", "Courses", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.TextBox("searchString", null, new { placeholder = "Search by Course name ...", required = "required" })
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Courses", FormMethod.Get))
+{
+    <div class="form-group">
+        
+        <button type="submit">Show all courses</button>
+    </div>
+}
+
+<div class="form-group">
+    @Html.ActionLink(
+             "My Courses Report",
+             "Report",
+             "Courses",
+             null,
+             new { @class = "btn btn-default" }
+             )
+</div>
 
 <div class="row">
 

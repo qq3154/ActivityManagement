@@ -38,29 +38,29 @@
                 <td>@category.Name</td>
                 @if (User.IsInRole("staff"))
                 {
-                    <td>
-                        @Html.ActionLink(
-                                     "Details",
-                                     "Details",
-                                     "Categories",
-                                     new { id = category.Id },
-                                     new { @class = "btn btn-primary" }
-                                     )
-                        @Html.ActionLink(
-                                     "Delete",
-                                     "Delete",
-                                     "Categories",
-                                     new { id = category.Id },
-                                     new { @class = "btn btn-danger" }
-                                     )
-                        @Html.ActionLink(
-                                     "Edit",
-                                     "Edit",
-                                     "Todoes",
-                                     new { id = category.Id },
-                                     new { @class = "btn btn-default" }
-                                     )
-                    </td>
+            <td>
+                @Html.ActionLink(
+                             "Details",
+                             "Details",
+                             "Categories",
+                             new { id = category.Id },
+                             new { @class = "btn btn-primary" }
+                             )
+                @Html.ActionLink(
+                             "Edit",
+                             "Edit",
+                             "Categories",
+                             new { id = category.Id },
+                             new { @class = "btn btn-default" }
+                             )
+                @Html.ActionLink(
+                            "Delete",
+                            "Delete",
+                            "Categories",
+                            new { id = category.Id },
+                            new { @class = "btn btn-danger" }
+                            )
+            </td>
                 }
             </tr>
         }

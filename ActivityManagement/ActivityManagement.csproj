@@ -249,6 +249,10 @@
     <Compile Include="Migrations\202106181825345_test2.Designer.cs">
       <DependentUpon>202106181825345_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106192121424_changeCourseModel.cs" />
+    <Compile Include="Migrations\202106192121424_changeCourseModel.Designer.cs">
+      <DependentUpon>202106192121424_changeCourseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -262,6 +266,7 @@
     <Compile Include="UniqueAttribute\Unique.cs" />
     <Compile Include="ViewModels\CourseCategoriesViewModel.cs" />
     <Compile Include="ViewModels\CourseUsersViewModel.cs" />
+    <Compile Include="ViewModels\SatisticalReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -333,6 +338,9 @@
     <Content Include="Views\Courses\AddTrainees.cshtml" />
     <Content Include="Views\Courses\ShowTrainers.cshtml" />
     <Content Include="Views\Courses\AddTrainers.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Courses\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181825345_test2.resx">
       <DependentUpon>202106181825345_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106192121424_changeCourseModel.resx">
+      <DependentUpon>202106192121424_changeCourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

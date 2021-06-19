@@ -19,17 +19,17 @@
                     <div>
                         <span>
                             @Html.ActionLink(
-                                                 "Remove",
-                                                 "RemoveTrainees",
-                                                 "Courses",
-                                                 new { id = ViewBag.CourseId, userId = user.Id },
-                                                 new { @class = "text-danger text-right" }
-                            )
+                                "Remove",
+                                "RemoveTrainees",
+                                "Courses",
+                                new { id = ViewBag.CourseId, userId = user.Id },
+                                new { @class = "text-danger text-right" }
+                             )
 
                         </span>
-                    </div>
+                    </div>                    
                 </li>
-            }
+            }           
         </ul>
     </div>
 </div>

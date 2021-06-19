@@ -4,16 +4,19 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details of TodoesController</h2>
+<h2>Details</h2>
 
-<div class="form-group">
-    @Html.ActionLink(
-        "Back to Index page",
-        "Index",
-        "Courses",
-        null,
-        new { @class = "btn btn-primary" })
-</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("staff"))
+{
+    <div class="form-group">
+        @Html.ActionLink(
+            "Back to Index page",
+            "Index",
+            "Courses",
+            null,
+            new { @class = "btn btn-primary" })
+    </div>
+}
 
 <div class="panel panel-info">
     <div class="panel-heading">Name: @Model.Name </div>

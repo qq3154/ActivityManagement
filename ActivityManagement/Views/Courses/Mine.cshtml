@@ -11,7 +11,20 @@
             <li class="list-group-item list-group-item-info">My Courses</li>
             @foreach (var course in Model)
             {
-                <li class="list-group-item">@course.Name</li>
+                <li class="list-group-item">
+                    @course.Name
+                    <div>
+                        <span>
+                            @Html.ActionLink(
+                                "Details",
+                                "Details",
+                                "Courses",
+                                new { id = course.Id },
+                                new { @class = "btn btn-primary" }                            
+                            )
+                        </span>
+                    </div>
+                </li>                
             }
         </ul>
     </div>

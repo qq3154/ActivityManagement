@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Category Name</th>
+            <th scope="col">Category Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            <tr>
+                <td>@report.CategoryName</td>
+                <td>@report.CategoryQuantity</td>
+
+            </tr>
+}
+
+    </tbody>
+</table>

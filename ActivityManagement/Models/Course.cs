@@ -17,7 +17,7 @@ namespace ActivityManagement.Models
 		[Unique(ErrorMessage = "Course already exist !!")]
 		[DisplayName("Course Name")]
 		public string Name { get; set; }
-		[Required]
+		//[Required]
 		public int CategoryId { get; set; }
 		public Category Category { get; set; }
 		[Required]

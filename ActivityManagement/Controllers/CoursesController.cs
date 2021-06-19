@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using ActivityManagement.ViewModels;
 using System.Diagnostics;
 using System.Net;
+using Microsoft.Ajax.Utilities;
 
 namespace ActivityManagement.Controllers
 {
@@ -29,9 +30,13 @@ namespace ActivityManagement.Controllers
 		// GET: Courses
 		[HttpGet]
 		[Authorize(Roles = "staff")]
-		public ActionResult Index()
+		public ActionResult Index(string searchString)
 		{
 			var courses = _context.Courses.ToList();
+			if (!searchString.IsNullOrWhiteSpace())
+			{
+				courses = courses.Where(t => t.Name.Contains(searchString)).ToList();
+			}
 			return View(courses);
 		}
 
@@ -343,8 +348,9 @@ namespace ActivityManagement.Controllers
 			return RedirectToAction("ShowTrainers", new { id = id });
 		}
 
-		[Authorize(Roles = "trainer, trainee")]
+		
 		[HttpGet]
+		[Authorize(Roles = "trainer, trainee")]
 		public ActionResult Mine()
 		{
 			var userId = User.Identity.GetUserId();
@@ -356,6 +362,34 @@ namespace ActivityManagement.Controllers
 				.ToList();
 
 			return View(courses);
+		}
+
+		[HttpGet]
+		[Authorize(Roles = "staff")]
+		public ActionResult Report()
+		{
+			var viewModel = new List<SatisticalReportViewModel>();
+
+			//var userId = User.Identity.GetUserId();
+
+
+			var coursesInDb = _context.Courses
+				.Include(t => t.Category)
+				.ToList();
+
+			var coursesGroupByName = coursesInDb.GroupBy(t => t.Category.Name).ToList();
+
+			foreach (var categoryGroup in coursesGroupByName)
+			{
+				var categoryQuantity = categoryGroup.Select(c => c.Category).Count();
+				viewModel.Add(new SatisticalReportViewModel()
+				{
+					CategoryName = categoryGroup.Key,
+					CategoryQuantity = categoryQuantity
+				});
+			}
+
+			return View(viewModel);
 		}
 	}
 }
