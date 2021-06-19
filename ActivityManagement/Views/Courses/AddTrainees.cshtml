@@ -1,12 +1,12 @@
-﻿@model ActivityManagement.ViewModels.CoursesUsersViewModel
+﻿@model ActivityManagement.ViewModels.CourseUsersViewModel
 @{
-    ViewBag.Title = "AddMembers";
+    ViewBag.Title = "AddTrainees";
 }
 
-<h2>Add Members</h2>
+<h2>Add a new Trainees</h2>
 
 
-@using (Html.BeginForm("AddMembers", "Courses", FormMethod.Post))
+@using (Html.BeginForm("AddTrainees", "Courses", FormMethod.Post))
 {
     <div class="form-group">
         Username:
@@ -16,6 +16,6 @@
             new { @class = "form-control" })
     </div>
     <div class="form-group">
-        <button class="btn btn-primary" type="submit">Add Member</button>
+        <button class="btn btn-primary" type="submit">Submit </button>
     </div>
 }

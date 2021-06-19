@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ActivityManagement.ViewModels
 {
-    public class CoursesUsersViewModel
+    public class CourseUsersViewModel
     {
         public int CourseId { get; set; }
         public string UserId { get; set; }

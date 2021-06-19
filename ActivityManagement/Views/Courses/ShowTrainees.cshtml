@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<ActivityManagement.Models.ApplicationUser>
 @{
-    ViewBag.Title = "Members";
+    ViewBag.Title = "ShowTrainees";
 }
 
-<h2>Members in Course</h2>
+<h2>Trainees in Course</h2>
 
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +20,7 @@
                         <span>
                             @Html.ActionLink(
                                                  "Remove",
-                                                 "RemoveMember",
+                                                 "RemoveTrainees",
                                                  "Courses",
                                                  new { id = ViewBag.CourseId, userId = user.Id },
                                                  new { @class = "text-danger text-right" }

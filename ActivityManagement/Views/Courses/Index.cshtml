@@ -48,14 +48,29 @@
                 </li>
                 <li class="list-group-item">
                     @Html.ActionLink(
-                        "See Members in Course",
-                        "Members",
+                        "See Trainee in Course",
+                        "ShowTrainees",
                         "Courses",
                         new { id = course.Id },
                         new { @class = "btn btn-success" })
                     @Html.ActionLink(
-                     "Add Members",
-                     "AddMembers",
+                     "Add Trainee",
+                     "AddTrainees",
+                     "Courses",
+                     new { id = course.Id },
+                     new { @class = "btn btn-primary" }
+                     )
+                </li>
+                <li class="list-group-item">
+                    @Html.ActionLink(
+                        "See Trainer in Course",
+                        "ShowTrainers",
+                        "Courses",
+                        new { id = course.Id },
+                        new { @class = "btn btn-success" })
+                    @Html.ActionLink(
+                     "Add Trainer",
+                     "AddTrainers",
                      "Courses",
                      new { id = course.Id },
                      new { @class = "btn btn-primary" }

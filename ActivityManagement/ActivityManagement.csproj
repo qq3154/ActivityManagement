@@ -245,6 +245,10 @@
     <Compile Include="Migrations\202106181627473_add.Designer.cs">
       <DependentUpon>202106181627473_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106181825345_test2.cs" />
+    <Compile Include="Migrations\202106181825345_test2.Designer.cs">
+      <DependentUpon>202106181825345_test2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -257,7 +261,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="UniqueAttribute\Unique.cs" />
     <Compile Include="ViewModels\CourseCategoriesViewModel.cs" />
-    <Compile Include="ViewModels\CoursesUsersViewModel.cs" />
+    <Compile Include="ViewModels\CourseUsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -319,14 +323,16 @@
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
-    <Content Include="Views\Courses\Members.cshtml" />
-    <Content Include="Views\Courses\AddMembers.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\UserInfos\Index.cshtml" />
     <Content Include="Views\UserInfos\Edit.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\ShowTrainees.cshtml" />
+    <Content Include="Views\Courses\AddTrainees.cshtml" />
+    <Content Include="Views\Courses\ShowTrainers.cshtml" />
+    <Content Include="Views\Courses\AddTrainers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -383,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181627473_add.resx">
       <DependentUpon>202106181627473_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106181825345_test2.resx">
+      <DependentUpon>202106181825345_test2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
