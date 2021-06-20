@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome Admin</h2>
+
+@if (User.IsInRole("admin"))
+{
+    @Html.ActionLink(
+         "Create a new Trainer",
+         "CreateTrainer",
+         "Account",
+         null,
+         new { @class = "btn btn-primary" }
+         )
+    @Html.ActionLink(
+             "Manage Trainer",
+             "ShowTrainers",
+             "Trainers",
+             null,
+             new { @class = "btn btn-success" }
+             )
+}

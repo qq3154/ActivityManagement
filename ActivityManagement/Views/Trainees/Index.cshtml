@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome Staff</h2>
+
+@if (User.IsInRole("staff"))
+{
+    @Html.ActionLink(
+         "Create a new Trainee",
+         "CreateTrainee",
+         "Account",
+         null,
+         new { @class = "btn btn-primary" }
+         )
+    @Html.ActionLink(
+             "Manage Trainees",
+             "ShowTrainees",
+             "Trainees",
+             null,
+             new { @class = "btn btn-success" }
+             )
+}

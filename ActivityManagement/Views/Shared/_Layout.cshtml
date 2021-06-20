@@ -26,6 +26,11 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                     {
                         <li>@Html.ActionLink("Staff", "Index", "Staffs")</li>
+                        <li>@Html.ActionLink("Trainer", "Index", "Trainers")</li>
+                    }
+                    @if (User.IsInRole("staff"))
+                    {
+                        <li>@Html.ActionLink("Trainee", "Index", "Trainees")</li>
                     }
                     @if (User.IsInRole("staff"))
                     {

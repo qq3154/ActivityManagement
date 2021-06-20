@@ -26,5 +26,23 @@ namespace ActivityManagement.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ShowTrainers()
+        {
+            var users = _context.Users.ToList();
+
+            var trainer = new List<ApplicationUser>();
+
+            foreach (var user in users)
+            {
+                if (_userManager.GetRoles(user.Id)[0].Equals("trainer"))
+                {
+                    trainer.Add(user);
+                }
+            }
+
+            return View(trainer);
+        }
     }
 }

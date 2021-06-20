@@ -68,6 +68,8 @@ namespace ActivityManagement.Controllers
 
 			userInfoInDb.FullName = userInfo.FullName;
 			userInfoInDb.Age = userInfo.Age;
+			userInfoInDb.TOEICScore = userInfo.TOEICScore;
+			userInfoInDb.ProgrammingLanguage = userInfo.ProgrammingLanguage;
 			_context.SaveChanges();
 
 			return RedirectToAction("Index");

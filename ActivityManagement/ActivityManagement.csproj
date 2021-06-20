@@ -189,6 +189,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\TraineesController.cs" />
     <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Controllers\UserInfosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +254,14 @@
     <Compile Include="Migrations\202106192121424_changeCourseModel.cs" />
     <Compile Include="Migrations\202106192121424_changeCourseModel.Designer.cs">
       <DependentUpon>202106192121424_changeCourseModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106200048253_fixdatatable.cs" />
+    <Compile Include="Migrations\202106200048253_fixdatatable.Designer.cs">
+      <DependentUpon>202106200048253_fixdatatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106200052568_fixdatatable2.cs" />
+    <Compile Include="Migrations\202106200052568_fixdatatable2.Designer.cs">
+      <DependentUpon>202106200052568_fixdatatable2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,10 +355,17 @@
     <Content Include="Views\Staffs\ShowStaffs.cshtml" />
     <Content Include="Views\Staffs\Edit.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
+    <Content Include="Views\Account\CreateTrainer.cshtml" />
+    <Content Include="Views\Trainers\ShowTrainers.cshtml" />
+    <Content Include="Views\Trainees\Index.cshtml" />
+    <Content Include="Views\Account\CreateTrainee.cshtml" />
+    <Content Include="Views\Trainees\Details.cshtml" />
+    <Content Include="Views\Trainees\Edit.cshtml" />
+    <Content Include="Views\Trainees\ShowTrainees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Trainers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -409,6 +425,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106192121424_changeCourseModel.resx">
       <DependentUpon>202106192121424_changeCourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200048253_fixdatatable.resx">
+      <DependentUpon>202106200048253_fixdatatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106200052568_fixdatatable2.resx">
+      <DependentUpon>202106200052568_fixdatatable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

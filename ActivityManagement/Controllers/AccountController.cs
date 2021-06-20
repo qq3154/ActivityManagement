@@ -164,7 +164,7 @@ namespace ActivityManagement.Controllers
                     {
                         FullName = model.FullName,
                         Age = model.Age,
-                        UserId = user.Id
+                        UserId = user.Id,                        
                     };
                     _context.UsersInfos.Add(userInfo);
                     _context.SaveChanges();
@@ -176,6 +176,75 @@ namespace ActivityManagement.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public ActionResult CreateTrainer()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> CreateTrainer(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRole(user.Id, "trainer");
+                    var userInfo = new UserInfo
+                    {
+                        FullName = model.FullName,
+                        Age = model.Age,
+                        UserId = user.Id
+                    };
+                    _context.UsersInfos.Add(userInfo);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("Index", "Trainers");
+                }
+                AddErrors(result);
+            }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "staff")]
+        public ActionResult CreateTrainee()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Authorize(Roles = "staff")]
+        public async Task<ActionResult> CreateTrainee(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRole(user.Id, "trainee");
+                    var userInfo = new UserInfo
+                    {
+                        FullName = model.FullName,
+                        Age = model.Age,
+                        UserId = user.Id
+                    };
+                    _context.UsersInfos.Add(userInfo);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("Index", "Trainees");
+                }
+                AddErrors(result);
+            }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
 
         //
         // POST: /Account/Register
