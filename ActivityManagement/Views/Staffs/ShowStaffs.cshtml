@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ActivityManagement.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ShowStaffs";
+}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <h2>Show Staffs</h2>
+        <ul>
+            <li class="list-group-item active">
+                All Staffs
+            </li>
+            @foreach (var user in Model)
+            {
+                <li class="list-group-item">@user.UserName</li>
+                @Html.ActionLink(
+                             "Detail",
+                             "Details",
+                             "Staffs",
+                             new { id = user.Id },
+                             new { @class = "btn btn-info" }
+                            )
+                @Html.ActionLink(
+                            "Edit",
+                            "Edit",
+                            "Staffs",
+                            new { id = user.Id },
+                            new { @class = "btn btn-info" }
+                           )
+                @Html.ActionLink(
+                            "Delete",
+                            "Delete",
+                            "Staffs",
+                            new { id = user.Id },
+                            new { @class = "btn btn-info" }
+                           )
+            }
+        </ul>
+    </div>
+</div>
