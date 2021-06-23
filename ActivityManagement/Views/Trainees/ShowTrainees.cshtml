@@ -35,6 +35,13 @@
                             new { id = user.Id },
                             new { @class = "btn btn-info" }
                            )
+                @Html.ActionLink(
+                            "Change Password",
+                            "ChangePassword",
+                            "Trainees",
+                            new { id = user.Id },
+                            new { @class = "btn btn-info" }
+                           )
             }
         </ul>
     </div>

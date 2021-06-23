@@ -274,6 +274,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UniqueAttribute\Unique.cs" />
+    <Compile Include="ViewModels\ChangePasswordsViewModel.cs" />
     <Compile Include="ViewModels\CourseCategoriesViewModel.cs" />
     <Compile Include="ViewModels\CourseUsersViewModel.cs" />
     <Compile Include="ViewModels\SatisticalReportViewModel.cs" />
@@ -363,6 +364,9 @@
     <Content Include="Views\Trainees\Details.cshtml" />
     <Content Include="Views\Trainees\Edit.cshtml" />
     <Content Include="Views\Trainees\ShowTrainees.cshtml" />
+    <Content Include="Views\Staffs\ChangePassword.cshtml" />
+    <Content Include="Views\Trainers\ChangePassword.cshtml" />
+    <Content Include="Views\Trainees\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

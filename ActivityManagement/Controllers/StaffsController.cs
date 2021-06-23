@@ -1,4 +1,5 @@
 ﻿using ActivityManagement.Models;
+using ActivityManagement.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -103,5 +104,26 @@ namespace ActivityManagement.Controllers
 
 			return RedirectToAction("Index");
 		}
+		[HttpGet]
+		public ActionResult ChangePassword(string id)
+		{
+			//string password;
+			var viewModel = new ChangePasswordsViewModel()
+			{
+				Password = "",
+				ConfirmPassword = "",
+				UserId = id
+			};
+			return View(viewModel);
+		}
+		[HttpPost]
+		public async System.Threading.Tasks.Task<ActionResult> ChangePassword(ChangePasswordsViewModel changepassword)
+		{
+			var user = await _userManager.FindByIdAsync(changepassword.UserId);
+			await _userManager.RemovePasswordAsync(changepassword.UserId);
+			await _userManager.AddPasswordAsync(user.Id, changepassword.Password);
+			return RedirectToAction("Index");
+		}
+
 	}
 }

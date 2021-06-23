@@ -3,8 +3,14 @@
 }
 
 <div class="jumbotron">
-    <h1>Activity Management Application</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Activity Management Application</h1>    
+    @if (User.IsInRole("admin"))
+    {
+        <h2>Welcome Admin</h2>
+    }
+    @if (User.IsInRole("staff"))
+    {
+        <h2>Welcome Staff</h2>
+    }
 </div>
 
