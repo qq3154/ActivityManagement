@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ActivityManagement.Models;
+using ActivityManagement.ViewModels;
 
 namespace ActivityManagement.Controllers
 {
@@ -142,6 +143,8 @@ namespace ActivityManagement.Controllers
         {
             return View();
         }
+        
+
 
         [HttpGet]
         [Authorize(Roles = "admin")]

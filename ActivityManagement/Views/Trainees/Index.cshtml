@@ -1,24 +1,90 @@
-﻿
+﻿@model IEnumerable<ActivityManagement.Models.ApplicationUser>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Welcome Staff</h2>
+<h2>Welcome Admin</h2>
 
 @if (User.IsInRole("staff"))
 {
-    @Html.ActionLink(
-         "Create a new Trainee",
-         "CreateTrainee",
-         "Account",
-         null,
-         new { @class = "btn btn-primary" }
-         )
-    @Html.ActionLink(
-             "Manage Trainees",
-             "ShowTrainees",
-             "Trainees",
+    <div class="form-group">
+        @Html.ActionLink(
+             "Create a new Trainee",
+             "CreateTrainee",
+             "Account",
              null,
-             new { @class = "btn btn-success" }
+             new { @class = "btn btn-primary" }
              )
+
+    </div>
 }
+
+@using (Html.BeginForm("Index", "Trainees", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.TextBox("searchString", null, new { placeholder = "Search by name ...", required = "required" })
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Trainees", FormMethod.Get))
+{
+    <div class="form-group">
+
+        <button type="submit">Show all Trainees</button>
+    </div>
+}
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <td>@user.UserName</td>
+                @if (User.IsInRole("staff"))
+                {
+                    <td>
+                        @Html.ActionLink(
+                              "Detail",
+                              "Details",
+                              "Trainees",
+                              new { id = user.Id },
+                              new { @class = "btn btn-info" }
+                             )
+                        @Html.ActionLink(
+                                    "Edit",
+                                    "Edit",
+                                    "Trainees",
+                                    new { id = user.Id },
+                                    new { @class = "btn btn-info" }
+                                   )
+                        @Html.ActionLink(
+                                    "Delete",
+                                    "Delete",
+                                    "Trainees",
+                                    new { id = user.Id },
+                                    new { @class = "btn btn-info" }
+                                   )
+                        @Html.ActionLink(
+                                    "Change Password",
+                                    "ChangePassword",
+                                    "Trainees",
+                                    new { id = user.Id },
+                                    new { @class = "btn btn-info" }
+                                   )
+                    </td>
+                }
+            </tr>
+        }
+
+    </tbody>
+</table>

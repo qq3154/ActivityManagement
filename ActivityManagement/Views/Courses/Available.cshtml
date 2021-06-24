@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ActivityManagement.Models.Course>
+@{
+    ViewBag.Title = "Available";
+}
+
+<h2>All available Courses</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info">All available Courses</li>
+            @foreach (var course in Model)
+            {
+                <li class="list-group-item">
+                    @course.Name
+                    <div>
+                        <span>
+                            @Html.ActionLink(
+                                "Details",
+                                "Details",
+                                "Courses",
+                                new { id = course.Id },
+                                new { @class = "btn btn-primary" }
+                            )
+                        </span>
+                    </div>
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>

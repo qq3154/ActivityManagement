@@ -1,5 +1,6 @@
 ﻿using ActivityManagement.Models;
 using ActivityManagement.ViewModels;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -25,10 +26,28 @@ namespace ActivityManagement.Controllers
 		}
 
 		// GET: Staffs
-		public ActionResult Index()
+		public ActionResult Index(string searchString)
         {
-            return View();
-        }
+			var users = _context.Users.ToList();
+			if (!searchString.IsNullOrWhiteSpace())
+			{
+				users = users.Where(t => t.UserName.Contains(searchString)).ToList();
+
+			}
+
+			var staffs = new List<ApplicationUser>();
+
+			foreach (var user in users)
+			{
+				if (_userManager.GetRoles(user.Id)[0].Equals("staff"))
+				{
+					staffs.Add(user);
+				}
+			}
+
+			return View(staffs);
+
+		}
 
 		[HttpGet]
 		public ActionResult ShowStaffs()

@@ -363,6 +363,39 @@ namespace ActivityManagement.Controllers
 
 			return View(courses);
 		}
+		[HttpGet]
+		[Authorize(Roles = "trainee")]
+		public ActionResult Available()
+		{
+			 var userId = User.Identity.GetUserId();
+
+			var coursesinDb = _context.Courses.ToList();
+
+			var coursesofuser = _context.CoursesUsers
+				.Where(t => t.UserId.Equals(userId))
+				.Include(t => t.Course)
+				.Select(t => t.Course)
+				.ToList();
+				
+			foreach(var courseDb in coursesinDb.ToList())
+            {
+				foreach(var course in coursesofuser)
+                {
+					if (courseDb.Id == course.Id)
+                    {
+						coursesinDb.Remove(courseDb);
+					
+
+					}
+                }
+            }
+				
+				
+				
+				
+
+			return View(coursesinDb);
+		}
 
 		[HttpGet]
 		[Authorize(Roles = "staff")]

@@ -15,7 +15,7 @@ namespace ActivityManagement.Models
 		public string UserId { get; set; }
 		public ApplicationUser User { get; set; }
 		[Required]
-		[DisplayName("Course Name")]
+		[DisplayName("Full Name")]
 		public string FullName { get; set; }
 		[Required]
 		public int Age { get; set; }

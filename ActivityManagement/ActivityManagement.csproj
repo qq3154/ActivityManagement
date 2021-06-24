@@ -367,6 +367,9 @@
     <Content Include="Views\Staffs\ChangePassword.cshtml" />
     <Content Include="Views\Trainers\ChangePassword.cshtml" />
     <Content Include="Views\Trainees\ChangePassword.cshtml" />
+    <Content Include="Views\Courses\Available.cshtml" />
+    <Content Include="Views\Trainers\Edit.cshtml" />
+    <Content Include="Views\Trainers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
