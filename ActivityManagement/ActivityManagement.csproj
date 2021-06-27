@@ -263,6 +263,10 @@
     <Compile Include="Migrations\202106200052568_fixdatatable2.Designer.cs">
       <DependentUpon>202106200052568_fixdatatable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106240132209_changecoursetype.cs" />
+    <Compile Include="Migrations\202106240132209_changecoursetype.Designer.cs">
+      <DependentUpon>202106240132209_changecoursetype.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -438,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106200052568_fixdatatable2.resx">
       <DependentUpon>202106200052568_fixdatatable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106240132209_changecoursetype.resx">
+      <DependentUpon>202106240132209_changecoursetype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
